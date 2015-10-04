@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+
+  <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta id="version" name="version" content="132" >
+<!-- Rails Generated HTML - TODO: Follow-up with Neel About this.
+    <meta id="version" name="version" content="<%= @appVersion %>" >
+-->
+    <link href="apple-touch-icon.png" rel="apple-touch-icon-precomposed"/>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>Imua</title>
+
+<!-- Rails Generated HTML - TODO: Follow-up with Neel About this.
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= favicon_link_tag 'favicon.ico' %>
+-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script type="text/javascript" src="//use.typekit.net/nck0oiv.js"></script>
+    <!--<script type="text/javascript" src="//use.typekit.net/kmx1vmk.js"></script>-->
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <!-- GRUNT injected script and stylesheet dependencies -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- injector:js -->
+    <!-- endinjector -->
+    <!-- injector:css -->
+    <!-- endinjector -->
+
+  </head>
+  <body ng-controller="AppController">
+    <ion-nav-view></ion-nav-view>
+    <!--
+      <div id="wrapper" ng-class="{'no-nav': hide_nav}">
+
+        <div class="alerts-section">
+          <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+        </div>
+
+        <div id="page-content-wrapper" data-ng-view ng-if="!reload_required"></div>
+
+        <div ng-if="reload_required" style="padding: 30px; text-align: center;">
+          <h4>Oops! We recenty updated Imua and we noticed you are using an old version.</h4>
+          <h5>Please refresh your browser window to get the updates!</h5>
+        </div>
+      </div>
+    -->
+  </body>
+</html>

@@ -1,0 +1,350 @@
+/* ===============================================
+   Progress Circle Classes
+   =============================================== */
+
+.circle-subnav {
+  @include font-size(1.2);
+
+  li {
+    margin-bottom: 2px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    a {
+      opacity: 0.4;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .extra-info {
+    opacity: 0.4;
+  }
+
+}
+
+.progress-circles {
+
+  width: 170px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: inherit;
+
+  a {
+    color: inherit;
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &:hover .circle-subnav {
+    visibility: visible;
+  }
+
+} //.progress-circles
+
+.add-button {
+  @extend .progress-circles;
+  cursor: pointer;
+
+  &:hover { text-decoration: underline;}
+
+  .glyphicon {
+    @include font-size(8);
+    color: $green;
+  }
+}
+
+/*----- Needs Attention Circles -----*/
+
+.xprogress-circles--needs-attention {
+
+  margin: 0 40px 40px 0;
+  display: inline-block;
+
+  @include respond-to(675) {
+    display: block;
+    margin: 0 auto 40px auto;
+  }
+
+  .attention-circle {
+    width: 170px;
+    margin-right: 20px;
+    display: inline-block;
+
+    @include respond-to(1200) {
+      display: block;
+      margin: 0 auto;
+    }
+
+  }
+
+  .attention-text {
+    width: 250px;
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+
+    @include respond-to(1200) {
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .attention-description {
+      color: $red;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+  }
+
+}
+
+/* ===============================================
+   Responsive Progress Circles
+   =============================================== */
+
+.progress-circle--list {
+
+  .progress-circle {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 10px;
+  }
+  .progress-circle--needs-attention {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 40px;
+  }
+}
+
+
+.progress-circle {
+  text-align: center;
+
+  .circle-size {
+    margin: 0 auto;
+  }
+
+  .circle-nav {
+    @include font-size(1.2);
+    opacity: 0;
+    @include transition(0.3);
+
+    li {
+      margin-bottom: 2px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      a {
+        opacity: 0.4;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    .extra-info {
+      opacity: 0.4;
+    }
+
+  }
+
+  &:hover {
+    .circle-nav {
+      opacity: 1;
+    }
+  }
+
+}
+
+.progress-circle--default {
+  width: 220px;
+  .circle-size { width: 75%; }
+
+  @include respond-to(1200) { width: 190px; }
+  @include respond-to(900) { width: 150px; }
+
+  @include respond-to(600) {
+    width: 32%;
+    .circle-nav {
+      display: none;
+    }
+  }
+
+}
+
+.progress-circle--needs-attention {
+
+  @include respond-to(900) {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .attention-circle {
+    width: 180px;
+    margin-right: 20px;
+    display: inline-block;
+
+    @include respond-to(1200) { width: 150px; }
+    @include respond-to(600) { margin: 0 auto; }
+
+  }
+
+  .attention-text {
+    width: 225px;
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+
+    @include respond-to(600) { display: block; width: 80%; margin: 0 auto; text-align: center; }
+
+    .attention-description {
+      color: $red;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+  }
+
+}
+
+.progress-bar-nav {
+
+  .progress-bar--left {
+    width: 30%;
+    float: left;
+    text-align: right;
+    h6 {
+      margin: 0;
+    }
+  }
+
+  .progress-bar--right {
+    width: 70%;
+    float: left;
+
+    .progress-bar-size {
+      width: 300px;
+      height: 15px;
+      margin: 0 auto;
+      margin-top: 3px;
+
+      @include respond-to(600) {
+        width: 240px;
+      }
+
+    }
+
+  }
+
+  .progress-bar--full {
+    width: 100%;
+
+    .progress-bar-size {
+      width: 450px;
+      height: 15px;
+      margin: 0 auto;
+      margin-top: 3px;
+
+      @include respond-to(600) {
+        width: 240px;
+      }
+    }
+
+    .bar-expectation {
+      padding-top: 10px;
+    }
+  }
+
+}
+
+
+/* ===============================================
+   Circle Picture Classes
+   =============================================== */
+
+.circle-pictures {
+  width: 150px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 10px 30px 10px;
+  text-align: center;
+
+  .circle-picture {
+    display: block;
+    width: 130px;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: auto;
+      @include border-radius(50%);
+    }
+  }
+  .circle-picture--name {
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &:hover .circle-subnav {
+    visibility: visible;
+  }
+
+}
+
+.medium-circle-pictures {
+
+  @extend .circle-pictures;
+  width: 100px;
+
+  .medium-circle-picture {
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    margin: 0 5px 10px 5px;
+    img { width: 100%; height: auto; @include border-radius(50%); }
+  }
+
+  .circle-subnav {
+    margin-top: 5px;
+  }
+
+}
+
+.tiny-circle-picture {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 0 5px 10px 5px;
+  img { width: 100%; height: auto; @include border-radius(50%); }
+}

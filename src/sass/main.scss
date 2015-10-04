@@ -1,0 +1,580 @@
+/* ===============================================
+   Big Global Stuff
+   =============================================== */
+
+html {
+  height: 100%;
+  min-height: 100%;
+
+  body {
+    background: $darkgrey;
+    color: white;
+  }
+
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  }
+
+.clear:before,
+.clear:after {
+    content: " ";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
+
+.left { float: left; }
+.right { float: right; }
+.ng-clickable { cursor: pointer; }
+.ng-clickable-text {
+  cursor: pointer;
+
+  &:hover {text-decoration: underline;}
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/* ===============================================
+   Global Classes
+   =============================================== */
+
+$wrapper: 0 40px;
+$wrapper-width: 40px;
+$small-wrapper-width: 20px;
+$panelwrapper: 0 80px;
+
+.single-col-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  @include respond-to(900) { width: 85%; }
+  @include respond-to(600) { width: 100%; }
+}
+
+.list-header-imua {
+
+	width: 100%;
+	padding-bottom: 20px;
+	border-bottom: 1px white(0.25) solid;
+
+  @include respond-to(900) { text-align: center; }
+
+}
+
+.list-container {
+	margin: 40px 0;
+  @include respond-to(900) { text-align: center; }
+}
+
+.no-bottom {
+  margin-bottom: 0;
+}
+
+/* this is for the wysiwyg */
+.ta-editor {
+    margin:10px 0;
+
+    ul {
+       list-style-type: disc;
+       list-style-position: inside;
+    }
+    ol {
+       list-style-type: decimal;
+       list-style-position: inside;
+    }
+    ul ul, ol ul {
+       list-style-type: circle;
+       list-style-position: inside;
+       margin-left: 15px;
+    }
+    ol ol, ul ol {
+       list-style-type: lower-latin;
+       list-style-position: inside;
+       margin-left: 15px;
+    }
+    i {
+      font-style: italic;
+    }
+ }
+
+.wysiwyg-output {
+  ul {
+     list-style-type: disc;
+     list-style-position: inside;
+  }
+  ol {
+     list-style-type: decimal;
+     list-style-position: inside;
+  }
+  ul ul, ol ul {
+     list-style-type: circle;
+     list-style-position: inside;
+     margin-left: 15px;
+  }
+  ol ol, ul ol {
+     list-style-type: lower-latin;
+     list-style-position: inside;
+     margin-left: 15px;
+  }
+  a {
+    text-decoration: underline;
+  }
+  i {
+    font-style: italic;
+  }
+}
+/* ===============================================
+   Header
+   =============================================== */
+
+header {
+
+  width: 100%;
+  background: $darkgrey;
+  color: white();
+  position: relative;
+  z-index: 1000;
+
+  a {
+
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+
+  .wrapper {
+
+    margin: $wrapper;
+    @include respond-to(600) { margin: 0 $small-wrapper-width; }
+
+    .imua-logo {
+
+      margin: 22px 0;
+
+      img {
+
+      	margin-right: 5px;
+
+      }
+
+    }
+
+    .nav-expanded {
+      @include respond-to(800) {
+        display: none;
+      }
+    }
+
+    .nav-collapsed {
+      @include respond-to-min(800) {
+        display: none;
+      }
+    }
+
+
+    nav {
+
+      margin: 32px 0;
+
+      li {
+
+        float: left;
+        margin-left: 90px;
+        @include respond-to(1000) { margin-left: 40px; }
+        @include respond-to(660) { margin-left: 20px; }
+
+        &:first-of-type {
+          margin-left: 20px;
+        }
+
+        a { cursor: pointer; }
+
+      }
+
+      .cog {
+
+	      .current-name {
+	      	display: inline-block;
+	      	padding-right: 6px;
+	      }
+
+	      .glyphicon {
+          display: inline-block;
+          font-size: 22px;
+	      	vertical-align: middle;
+	      	margin-top: -6px;
+        }
+
+      }
+
+      .dropdown {
+        cursor: pointer;
+
+        .submenu {
+          position: absolute;
+          right: 0px;
+          top: 35px;
+
+          padding: 5px 20px;
+          background-color: $darkgrey;
+          border: 1px solid white;
+          @include border-radius(5px);
+          box-shadow: 0px 3px 5px #666;
+
+          .submenu__link {
+            padding: 10px;
+            border-bottom: 1px solid;
+
+            &:last-of-type {
+              border-bottom: none;
+            }
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999; // Just below the header
+}
+
+.alerts-section {
+  position: fixed;
+  z-index: 10000;
+  width: 400px;
+  top: 20px;
+  left: 50%;
+  margin-left: -200px;
+
+  @include respond-to(660) {
+    width: 200px;
+    margin-left: -100px;
+  }
+}
+/* ===============================================
+   Milestone Classes
+   =============================================== */
+
+.milestone-item {
+
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px 3%;
+  text-align: center;
+
+  .milestone--point-circle {
+
+    @include circle(90px);
+    background: white;
+    margin: 0 auto;
+    padding-bottom: 10px;
+
+    .point-circle--inside {
+
+      padding-top: 20px;
+
+      h5 {
+        line-height: 1rem;
+      }
+
+    }
+
+  } //milestone--point-circle
+
+  .milestone-item-statisfied {
+
+    opacity: 0.6;
+
+    .point-circle--inside {
+
+      padding-top: 10px;
+
+    }
+
+  }
+
+  .milestone--point-circle {
+
+    color: $darkgrey;
+
+  } //milestone--point-circle
+
+} //milestone-item
+
+/* ===============================================
+   Status Block Classes
+   =============================================== */
+
+.status-block {
+  width: 100%;
+  margin-bottom: 20px;
+  background: $grey;
+  @include border-radius(5px);
+
+  .status-picture {
+    padding: 20px;
+    vertical-align: top;
+    .circle-pictures, .circle-picture, .medium-circle-pictures, .medium-circle-picture {
+      margin: 0;
+    }
+
+  }
+
+  .large-pic, .circle-pictures {
+    width: 150px;
+  }
+
+
+  .status-message {
+    padding: 20px;
+    padding-left: 0;
+  }
+
+}
+
+.due-soon, .warn { background: #f0ad4e; }
+.past-due, .bad { background: $darkred; }
+.complete, .good { background: $green; }
+
+/* ===============================================
+   Helper Classes
+   =============================================== */
+.maxl,.mvxl,.mbxl {margin-bottom: 20px}
+.mal,.mvl,.mbl {margin-bottom: 15px}
+.mam,.mvm,.mbm {margin-bottom: 10px}
+.mas,.mvs,.mbs {margin-bottom: 5px}
+
+.maxl,.mvxl,.mtxl {margin-top: 20px}
+.mal,.mvl,.mtl {margin-top: 15px}
+.mam,.mvm,.mtm {margin-top: 10px}
+.mas,.mvs,.mts {margin-top: 5px}
+
+.maxl,.mhxl,.mrxl {margin-right: 20px}
+.mal,.mhl,.mrl {margin-right: 15px}
+.mam,.mhm,.mrm {margin-right: 10px}
+.mas,.mhs,.mrs {margin-right: 5px}
+
+.maxl,.mhxl,.mlxl {margin-left: 20px}
+.mal,.mhl,.mll {margin-left: 15px}
+.mam,.mhm,.mlm {margin-left: 10px}
+.mas,.mhs,.mls {margin-left: 5px}
+
+.paxl,.pvxl,.pbxl {padding-bottom: 20px}
+.pal,.pvl,.pbl {padding-bottom: 15px}
+.pam,.pvm,.pbm {padding-bottom: 10px}
+.pas,.pvs,.pbs {padding-bottom: 5px}
+
+.paxl,.pvxl,.ptxl {padding-top: 20px}
+.pal,.pvl,.ptl {padding-top: 15px}
+.pam,.pvm,.ptm {padding-top: 10px}
+.pas,.pvs,.pts {padding-top: 5px}
+
+.paxl,.phxl,.prxl {padding-right: 20px}
+.pal,.phl,.prl {padding-right: 15px}
+.pam,.phm,.prm {padding-right: 10px}
+.pas,.phs,.prs {padding-right: 5px}
+
+.paxl,.phxl,.plxl {padding-left: 20px}
+.pal,.phl,.pll {padding-left: 15px}
+.pam,.phm,.plm {padding-left: 10px}
+.pas,.phs,.pls {padding-left: 5px}
+
+/* ===============================================
+   Forms
+   =============================================== */
+
+.form-field {
+
+  font-size: 14px;
+  color: $ink;
+  border: 1px solid #bdbdbd;
+  @include border-radius(5px);
+  padding: 8px;
+  line-height: 1;
+
+  &:-moz-placeholder {
+      color: #999999;
+  }
+
+  &:focus {
+    border-color: $blue;
+
+    outline: none; // Chrome adds a square outline which looks weird
+  }
+
+}
+
+button:focus {
+  outline: none; // Chrome adds a blue outline when clicked on a button
+}
+
+.buttonGroup {
+
+  .submit, .cancel, .delete {
+
+    padding-left: 10px;
+    font-size: 18px;
+  }
+
+}
+
+.submit {
+
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid $button-blue;
+  background-color: $button-blue;
+  @include border-radius(2px);
+  color: white;
+  min-width: 80px;
+
+  padding: 6px 10px;
+  cursor: pointer;
+
+  &:hover { background-color: $button-blue-hover; }
+
+}
+
+.cancel {
+
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid $grey;
+  background-color: $grey;
+  @include border-radius(2px);
+  color: white;
+  min-width: 80px;
+
+  padding: 6px 10px;
+  cursor: pointer;
+
+  &:hover { background-color: $grey-hover; }
+
+}
+
+.delete {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid $button-red;
+  background-color: $button-red;
+  @include border-radius(2px);
+  color: white;
+  min-width: 80px;
+
+  padding: 6px 10px;
+  cursor: pointer;
+
+  &:hover { background-color: $button-red-hover; }
+}
+
+.errorText { color: $red; }
+.errorMessage { padding-left: 10px; }
+.errorListing { padding-bottom: 10px; }
+
+.link {
+  cursor: pointer;
+
+  &:hover { text-decoration: underline; }
+}
+/* ===============================================
+   Misc
+   =============================================== */
+
+.dropdown-menu {
+  z-index: 5000;
+}
+
+.displayNone {
+  display: none;
+}
+
+.flash-container {
+  padding: 20px;
+  z-index: 10000;
+
+  position: absolute;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+
+  .alert-notice { @extend .alert-success !optional;}
+  .alert-alert, .alert-error { @extend .alert-danger !optional; }
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid black;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-top: 20px solid #f00;
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+
+  border-left: 60px solid green;
+}
+
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+
+  border-right:10px solid blue;
+}
+
+/* ===============================================
+   Modals
+=============================================== */
+
+.modal-body {
+  background-color: $darkgrey;
+  color: white;
+
+  .modal-body__title {
+    text-align: center;
+  }
+}

@@ -1,0 +1,297 @@
+.expectationUpper {
+
+  background: $grey;
+  color: white;
+  border-bottom: 1px $darkborder solid;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+
+    margin-bottom: 0;
+
+    li {
+
+      float: left;
+
+    }
+
+    .wide {
+
+      width: 60%;
+      padding: 40px 100px 0 100px;
+
+    }
+
+    .narrow {
+
+      width: 20%;
+      padding: 60px 0;
+      text-align: center;
+
+    }
+
+    .addBorderleft {
+      border-left: 1px solid $darkborder;
+    }
+
+    .addBorderright {
+      border-right: 1px solid $darkborder;
+    }
+
+  }
+
+}
+
+.expectationMiddle {
+
+  background: $grey;
+  color: white;
+
+  .progressCircle-big--container {
+
+    float: left;
+    width: 24%;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-right: 1px solid $darkborder;
+
+    @include respond-to(1275) {
+      float: none;
+      display: block;
+      width: 100%;
+      border-right: 0;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+  }
+
+  .meetingExpectations {
+
+    width: 76%;
+    float: left;
+    padding-top: 80px;
+    text-align: center;
+    color: white();
+
+    @include respond-to(1275) {
+      float: none;
+      display: block;
+      width: 100%;
+      border: 0;
+      padding: 0;
+      margin-bottom: 40px;
+    }
+
+  }
+
+}
+
+.expectationLower {
+
+  background: $darkgrey;
+  min-height: 500px;
+  border-top: 10px solid $blue;
+  padding: $wrapper;
+  color: white;
+  text-align: center;
+
+  @include respond-to(600) {
+    padding: 0;
+  }
+
+  .expectationLower--container {
+    padding: 40px 0;
+
+    .module-header {
+      margin-bottom: 20px;
+    }
+
+    .expectations-list {
+
+      .expectations-list-item {
+        width: 30%;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 10px 20px 10px;
+        padding: 20px;
+        @include border-radius(10px);
+        cursor: pointer;
+        @include respond-to(1200) { width: 45%; }
+        @include respond-to(600) { width: 100%; margin: 3px 0; @include border-radius(0); }
+
+        .updated-text {
+          margin-top: 10px;
+          @include font-size(1);
+        }
+
+      }
+
+      &:hover {
+        .expectations-list-item {
+          opacity: 0.8;
+          &:hover {opacity: 1;}
+        }
+      }
+
+    }
+
+  }
+
+}
+
+.expectation-view {
+
+  margin: 40px 0;
+  padding: $wrapper;
+  color: white;
+  text-align: center;
+
+  .expectations-list-item {
+    width: 48%;
+    display: inline-block;
+
+    @include respond-to (900) {
+      float: none;
+      display: block;
+      width: 100%;
+    }
+
+    .expectation-btn-group--container {
+      width: 65%;
+    }
+
+    // Added by Neel
+    .expectation-comment-container {
+
+      .expectation-comment {
+          @include font-size(2.0);
+      }
+
+      .expectation-comment-box {
+        width: 70%;
+        margin-bottom: 10px;
+      }
+
+    }
+
+  }
+}
+
+.userExpectationContainer {
+  .expectation-header {
+    width: 100%;
+    padding: 20px 0;
+    background: $grey;
+  }
+
+  .expectation-content {
+    padding: 20px 0;
+
+    .ta-editor {
+      min-height: 100px;
+      height: 150px;
+    }
+    
+    .expectation--current-status {
+      @include border-radius(20px);
+      padding: 30px;
+      text-align: center;
+
+      .circle-pictures, .circle-picture {
+        margin: 5px;
+      }
+
+      .status-buttons {
+        margin-top: 10px;
+      }
+
+    .inline-head {
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .comment-edit {
+      color: black;
+    }
+    .glyphicon-edit {
+      font-size: 12px;
+    }
+    .glyphicon-ok {
+      color: green;
+    }
+    .glyphicon-remove {
+      color: red;
+    }
+
+    }
+
+    .expectation--status-changer {
+      width: 100%;
+      margin-bottom: 20px;
+      .expectation--status {
+        width: 33%;
+        float: left;
+        text-align: center;
+        .expectation--status-inner {
+          @include border-radius(20px);
+          margin: 0 10px;
+          padding: 15px;
+          opacity: 0.2;
+          &:hover {
+            opacity: 1;
+          }
+        }
+        .selected {
+          opacity: 1;
+        }
+      }
+
+    }
+
+    .expectation--comment-box {
+      margin-bottom: 20px;
+    }
+
+  }
+
+  .expectation-history {
+    padding: 0 40px;
+
+    .history-block {
+      opacity: 0.6;
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .history-comment {
+      padding: 20px;
+    }
+
+  }
+
+}
+
+.expectation-dot {
+  width: 100px;
+}
+
+.expectation-history-status {
+  width: 50px;
+  height: 50px;
+  @include border-radius (50%);
+
+  &.alert { background: $red; }
+  &.warn { background: $yellow; }
+  &.good { background: $green; }
+}
+
+.expectation-status-label { margin: 10px; }

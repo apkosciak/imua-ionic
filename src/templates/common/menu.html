@@ -1,0 +1,112 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button ng-show="false">
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent">
+    </ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h4 class="title">Menu</h4>
+    </ion-header-bar>
+    <ion-view>
+    <ion-content class="sidebar-nav">
+
+      <div ng-controller="NavController">
+        <ul class="sidebar-nav">
+          <li>
+            <div></div>
+          </li>
+          <li class="sidebar-brand">
+            <a menu-close href="#/app/">
+              <img ng-src="assets/logo-blue-small.png" alt="IMUA" height="22px" width="22px">
+                <span class="pls" ng-if="current_user.is_super_admin">Collective Progress</span>
+                <span class="pls" ng-if="!current_user.is_super_admin">{{ current_user.organization_name }}</span>
+            </a>
+          </li>
+
+          <li ng-if="current_user.is_super_admin">
+            <a menu-close href="#/app/sa/organizations">Organizations</a>
+          </li>
+
+          <div ng-if="current_user.is_org_admin">
+            <li>
+              <a menu-close href="#/app/dashboard/{{ current_user.id }}">Dashboard</a>
+            </li>
+            <li>
+              <a menu-close href="#/app/organization/{{ current_user.organization_id }}">Mentors</a>
+            </li>
+            <li>
+              <a menu-close href="#/app/students/{{ current_user.organization_id }}">Students</a>
+            </li>
+            <li>
+                <a menu-close href="#/app/assignments/{{ current_user.id }}">Tasks</a>
+              </li>
+            <li>
+            <li>
+              <a menu-close href="#/app/setup/{{ current_user.organization_id }}">Organization Setup</a>
+            </li>
+          </div>
+
+          <div ng-if="current_user.is_mentor">
+            <li>
+              <a menu-close href="#/app/dashboard/{{ current_user.id }}">My Students</a>
+            </li>
+            <li>
+              <a menu-close href="#/app/assignments/{{ current_user.id }}">Tasks</a>
+            </li>
+            <!-- TODO: Mentors shouldn't go to old roadmap page - Create new page
+                  for accessing milestone and expectation view for both
+                  admins and mentors to see -->
+            <li>
+              <a menu-close href="#/app/setup/{{ current_user.organization_id }}">Organization</a>
+            </li>
+          </div>
+
+          <div ng-if="current_user.is_student">
+            <li>
+              <a menu-close href="#/app/dashboard/{{ current_user.id }}">Dashboard</a>
+            </li>
+            <li>
+              <a menu-close href="#/app/progress/{{ current_user.id }}">My Progress</a>
+            </li>
+            <li>
+              <a menu-close href="#/app/expectations/{{ current_user.id }}">Expectations</a>
+            </li>
+            <li>
+              <a menu-close href="#/app/user_assignments/{{ current_user.id }}">Tasks</a>
+            </li>
+          </div>
+
+          <li class="dropdown cog js-cog">
+            <div class="profile-dropdown">
+              <span>{{ current_user.first_last_initial }}</span>
+              <span class="glyphicon glyphicon-cog"></span>
+            </div>
+            <div class="submenu js-submenu">
+              <div class="submenu__link">
+                <a menu-close href="#/app/profile/{{ current_user.id }}">Profile</a>
+              </div>
+              <div class="submenu__link">
+                <a menu-close href="" ng-click="logout()">Logout</a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+    </ion-content>
+    </ion-view>
+  </ion-side-menu>
+</ion-side-menus>
+

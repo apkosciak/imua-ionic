@@ -1,0 +1,84 @@
+<div class="mentorContainer">
+
+  <div class="mentor-header">
+
+    <div class="mentor--pic">
+      <a href="#/profile/{{mentor.id}}" alt="View {{mentor.first_name}}'s full profile"><img ng-src="{{mentor.square_avatar_url}}" alt="{{mentor.first_name}}'s Profile Picture"></a>
+    </div>
+
+    <div class="mentor--primary-info">
+
+      <h3 class="bold">{{mentor.first_name}} {{mentor.last_name}}</h3>
+      <h5>{{mentor.title}}</h5>
+      <div class="view-profile-button">
+        <a href="#/profile/{{mentor.id}}" alt="View {{mentor.first_name}}'s full profile"><button class="btn submit">View Full Profile</button></a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="mentor-mid" ng-hide="attention_students.length == 0">
+    <div class="students-attention">
+      <div ng-if="attention_students.length == 1" class="list-header">
+        <h5>Student assigned to {{mentor.first_name}} who <span class="bold">needs attention</span></h5>
+      </div>
+      <div ng-if="attention_students.length != 1" class="list-header">
+        <h5>Students assigned to {{mentor.first_name}} <span class="bold">who need attention</span></h5>
+      </div>
+      <div class="list-container progress-circle--list no-bottom">
+        <progress-circle-needs-attention ng-repeat="student in attention_students"></progress-circle-needs-attention>
+      </div>
+    </div>
+  </div>
+
+  <div class="mentor-lower">
+    <h4 class="list-header"><span class="bold">{{mentor.first_name}}'s</span> Students</h4>
+
+    <div class="list-container progress-circle--list">
+
+      <progress-circle-assigned ng-repeat="student in assigned_students | orderBy: 'last_name'"></progress-circle-assigned>
+
+      <div class="add-button" ng-click="assigning=true" ng-hide="assigning || assigned_students.length == all_students.length">
+        <div class="glyphicon glyphicon-plus-sign"></div>
+        <h6 class="bold">Assign Students</h6>
+      </div>
+
+      <div class="add-button" ng-show="assigning">
+        <h6 class="bold">Scroll Down to Assign Students</h6>
+      </div>
+
+    <div ng-show="assigning">
+
+      <h4 class="list-header" ng-hide="all_students.length == assigned_students.length"><span class="bold">Assign Students</span> to {{mentor.first_name}}</h4>
+
+      <h6 class="search-label">Search for Students: </h6>
+      <input class="student-search form-inline form-field" type="text" ng-model="search.name">
+
+      <div class="list-container">
+        <div class="circle-pictures assign-student-circles" ng-class="{ assigned: isAssigned(student)}" ng-click="assign(student)" ng-repeat="student in all_students | orderBy: 'last_name' | filter: { full_name: search.name }">
+            <div class="circle-picture">
+              <img ng-src="{{student.square_avatar_url}}" alt="Avatar" class="avatar-block__img avatar-block__img--thumbnail" />
+            </div>
+            <div class="student-name">
+              <h6 class="bold">{{student.first_last_initial}}</h6>
+            </div>
+            <div class="add-student-name">
+              <h6 class="bold"><span class="glyphicon glyphicon-plus-sign green"></span> {{student.first_last_initial}}</h6>
+            </div>
+        </div>
+        <div class="add-button" ng-click="assigning=false">
+          <div class="glyphicon glyphicon-ok-sign green"></div>
+          <div>Done Assigning</div>
+        </div>
+      </div>
+
+      <h5 ng-show="all_students.length == assigned_students.length">No students left to assign!</h5>
+
+    </div>
+
+    </div>
+
+  </div>
+
+</div>

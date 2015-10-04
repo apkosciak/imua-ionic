@@ -1,0 +1,215 @@
+/* ===============================================
+	**********  Global Dashboard Styles  ***********
+	=============================================== */
+
+.dashboard-header {
+	width: 100%;
+	padding: 60px $wrapper-width;
+	margin: 0;
+}
+
+.dashboard-content {
+  background-color: $darkgrey;
+  color: white;
+	width: 100%;
+
+	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+}
+
+/* ===============================================
+	*************  Student Dashboard  *************
+	=============================================== */
+
+#studentDashboard {
+
+  .dashboard-header {
+
+  	background: $grey;
+
+    .student-header--wrapper {
+
+      width: 100%;
+
+      .student-header--content {
+
+				text-align: center;
+
+        .progressCircle-big--container {
+
+        	width: 240px;
+					display: inline-block;
+        	margin-right: 40px;
+
+					@include respond-to(1200) {
+						display: block;
+						margin: 0 auto;
+					}
+
+        }
+
+        .greeting {
+
+        	width: 700px;
+					display: inline-block;
+					vertical-align: top;
+					text-align: left;
+        	padding-top: 40px;
+
+					@include respond-to(1200) {
+						display: block;
+						width: 100%;
+						text-align: center;
+					}
+
+        }
+
+      } //.student-header--content
+
+    } //.student-header--wrapper
+
+  }
+
+  .dashboard-content--student {
+
+		.milestone--point-circle {
+			@each $category, $color in $colormap {
+				&.color--#{$category} { border: 5px solid $color; color: $color; background: $grey;}
+			}
+		}
+
+		.studentExpectationContainer {
+			.section--inner {
+				.expectations-met-message {
+					padding-bottom: 20px;
+				}
+			}
+		}
+
+		.module--upcoming--tasks {
+			.tasks--list--item {
+				width: 100%;
+				background: $boxgrey;
+				@include border-radius(5px);
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+		}
+
+  } //.dashboard-content--student
+
+} //#studentDashboard
+
+/* ===============================================
+	*************  Mentor Dashboard  **************
+	=============================================== */
+
+#mentorDashboard {
+
+  .dashboard-header {
+
+    background: $green;
+    color: white;
+
+		@include respond-to(900) { padding-top: 0; }
+
+    .mentor-header--wrapper {
+
+			text-align: center;
+
+      .greeting {
+				width: 700px;
+				display: inline-block;
+				vertical-align: top;
+				text-align: left;
+				padding-top: 60px;
+				margin-right: 60px;
+
+				@include respond-to(1200) {
+					display: block;
+					width: 100%;
+					text-align: center;
+				}
+
+				h2 { margin-top: 10px; }
+      }
+
+      .circle-attention {
+
+				display: inline-block;
+
+        .circle {
+
+          width: 288px;
+          height: 288px;
+          margin: 0 auto;
+
+					@include respond-to(900) {
+						width: 250px;
+						height: 250px;
+					}
+
+          &:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height:0;
+            padding-bottom: 88%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            border: 22px solid white;
+
+						@include respond-to(900) {
+							padding-bottom: 82%;
+						}
+
+          }
+
+          .text {
+
+            float:left;
+            width:100%;
+            padding-top: 15%;
+            text-align:center;
+            color:white;
+
+						@include respond-to(900) { padding-top: 10%; }
+
+            .subhead {
+
+              @include font-size(2);
+
+            }
+
+          } //.text
+
+        } //.circle
+
+      } //.circle-attention
+
+    } //.mentor-header
+
+  } //.dashboard-header
+
+	.dashboard-content--mentor {
+		padding: 60px $wrapper-width;
+	}
+
+} //#mentorDashboard
+
+/* ===============================================
+	************  Org Admin Dashboard  ************
+	=============================================== */
+
+#OrgAdminDashboard {
+	.dashboard-header {
+		background: $grey;
+		color: white;
+		text-align: center;
+	}
+} //#OrgAdminDashboard

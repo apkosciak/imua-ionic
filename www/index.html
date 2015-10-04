@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+
+  <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta id="version" name="version" content="132" >
+<!-- Rails Generated HTML - TODO: Follow-up with Neel About this.
+    <meta id="version" name="version" content="<%= @appVersion %>" >
+-->
+    <link href="apple-touch-icon.png" rel="apple-touch-icon-precomposed"/>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>Imua</title>
+
+<!-- Rails Generated HTML - TODO: Follow-up with Neel About this.
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= favicon_link_tag 'favicon.ico' %>
+-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script type="text/javascript" src="//use.typekit.net/nck0oiv.js"></script>
+    <!--<script type="text/javascript" src="//use.typekit.net/kmx1vmk.js"></script>-->
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <!-- GRUNT injected script and stylesheet dependencies -->
+    <!-- bower:js -->
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/jquery-ujs/src/rails.js"></script>
+    <script src="lib/jquery-placeholder/jquery.placeholder.js"></script>
+    <script src="lib/d3/d3.js"></script>
+    <script src="lib/c3/c3.js"></script>
+    <script src="lib/spin/javascripts/jquery.spin.js"></script>
+    <script src="lib/spin.js/spin.js"></script>
+    <script src="lib/ladda/dist/ladda.min.js"></script>
+    <script src="lib/salvattore/dist/salvattore.min.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/underscore/underscore.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/waypoints/waypoints.js"></script>
+    <script src="lib/SHA-1/sha1.js"></script>
+    <script src="lib/angulartics/src/angulartics.js"></script>
+    <script src="lib/angulartics/src/angulartics-adobe.js"></script>
+    <script src="lib/angulartics/src/angulartics-chartbeat.js"></script>
+    <script src="lib/angulartics/src/angulartics-cnzz.js"></script>
+    <script src="lib/angulartics/src/angulartics-flurry.js"></script>
+    <script src="lib/angulartics/src/angulartics-ga-cordova.js"></script>
+    <script src="lib/angulartics/src/angulartics-ga.js"></script>
+    <script src="lib/angulartics/src/angulartics-gtm.js"></script>
+    <script src="lib/angulartics/src/angulartics-kissmetrics.js"></script>
+    <script src="lib/angulartics/src/angulartics-mixpanel.js"></script>
+    <script src="lib/angulartics/src/angulartics-piwik.js"></script>
+    <script src="lib/angulartics/src/angulartics-scroll.js"></script>
+    <script src="lib/angulartics/src/angulartics-segmentio.js"></script>
+    <script src="lib/angulartics/src/angulartics-splunk.js"></script>
+    <script src="lib/angulartics/src/angulartics-woopra.js"></script>
+    <script src="lib/angulartics/src/angulartics-marketo.js"></script>
+    <script src="lib/angulartics/src/angulartics-intercom.js"></script>
+    <script src="lib/rangy/rangy-core.js"></script>
+    <script src="lib/rangy/rangy-classapplier.js"></script>
+    <script src="lib/rangy/rangy-highlighter.js"></script>
+    <script src="lib/rangy/rangy-selectionsaverestore.js"></script>
+    <script src="lib/rangy/rangy-serializer.js"></script>
+    <script src="lib/rangy/rangy-textrange.js"></script>
+    <script src="lib/textAngular/src/textAngular.js"></script>
+    <script src="lib/textAngular/src/textAngular-sanitize.js"></script>
+    <script src="lib/textAngular/src/textAngularSetup.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/ionic/js/ionic.js"></script>
+    <script src="lib/ionic/js/ionic-angular.js"></script>
+    <script src="lib/angular-messages/angular-messages.js"></script>
+    <script src="lib/angular-cookie/angular-cookie.js"></script>
+    <script src="lib/angular-devise/lib/devise.js"></script>
+    <!-- endbower -->
+    <!-- injector:js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/app_config.js"></script>
+    <script src="scripts/assignment/assignment_controller.js"></script>
+    <script src="scripts/assignment/assignment_routes.js"></script>
+    <script src="scripts/assignment/assignment_service.js"></script>
+    <script src="scripts/assignment/assignments_controller.js"></script>
+    <script src="scripts/assignment/assignments_routes.js"></script>
+    <script src="scripts/assignment/incoming_assignments_controller.js"></script>
+    <script src="scripts/assignment/incoming_assignments_routes.js"></script>
+    <script src="scripts/assignment/outgoing_assignments_controller.js"></script>
+    <script src="scripts/assignment/outgoing_assignments_routes.js"></script>
+    <script src="scripts/assignment/user_assignment_controller.js"></script>
+    <script src="scripts/assignment/user_assignment_routes.js"></script>
+    <script src="scripts/authentication/login_controller.js"></script>
+    <script src="scripts/authentication/login_routes.js"></script>
+    <script src="scripts/circles/progress_bar_default.js"></script>
+    <script src="scripts/circles/progress_circle_assigned.js"></script>
+    <script src="scripts/circles/progress_circle_default.js"></script>
+    <script src="scripts/circles/progress_circle_mentor.js"></script>
+    <script src="scripts/circles/progress_circle_mentorattention.js"></script>
+    <script src="scripts/circles/progress_circle_needs_attention.js"></script>
+    <script src="scripts/common/app_version_interceptor.js"></script>
+    <script src="scripts/common/back_button_directive.js"></script>
+    <script src="scripts/common/class_of_directive.js"></script>
+    <script src="scripts/common/constants.js"></script>
+    <script src="scripts/common/cookie_interceptor.js"></script>
+    <script src="scripts/common/custom_filters.js"></script>
+    <script src="scripts/common/focus_me_directive.js"></script>
+    <script src="scripts/common/form_datepicker_directive.js"></script>
+    <script src="scripts/common/imua_accordion_directive.js"></script>
+    <script src="scripts/common/imua_datepicker_directive.js"></script>
+    <script src="scripts/common/imua_form.js"></script>
+    <script src="scripts/common/label_with_errors.js"></script>
+    <script src="scripts/common/module_color_directive.js"></script>
+    <script src="scripts/common/moment_filter.js"></script>
+    <script src="scripts/common/no_click_propagation_directive.js"></script>
+    <script src="scripts/common/org_setup_editor_directive.js"></script>
+    <script src="scripts/common/progress_editor_directive.js"></script>
+    <script src="scripts/common/salvattore_directive.js"></script>
+    <script src="scripts/common/task_editor_directive.js"></script>
+    <script src="scripts/common/users_service.js"></script>
+    <script src="scripts/common/waitToLoad_directive.js"></script>
+    <script src="scripts/d3/horizontal_module_progress_bar_directive.js"></script>
+    <script src="scripts/d3/horizontal_progress_bar_directive.js"></script>
+    <script src="scripts/d3/line_chart_directive.js"></script>
+    <script src="scripts/d3/module_progress_circle_directive.js"></script>
+    <script src="scripts/d3/progress_circle_directive.js"></script>
+    <script src="scripts/dashboard/dashboard_controller.js"></script>
+    <script src="scripts/dashboard/dashboard_routes.js"></script>
+    <script src="scripts/dashboard/mentor_dashboard_controller.js"></script>
+    <script src="scripts/dashboard/org_admin_dashboard_controller.js"></script>
+    <script src="scripts/dashboard/student_dashboard_controller.js"></script>
+    <script src="scripts/directives.js"></script>
+    <script src="scripts/expectation/expectation_controller.js"></script>
+    <script src="scripts/expectation/expectation_routes.js"></script>
+    <script src="scripts/expectation/expectation_service.js"></script>
+    <script src="scripts/expectation/organization_expectation_controller.js"></script>
+    <script src="scripts/expectation/student_expectation_controller.js"></script>
+    <script src="scripts/expectation/student_expectation_routes.js"></script>
+    <script src="scripts/expectation/user_expectation_controller.js"></script>
+    <script src="scripts/expectation/user_expectation_routes.js"></script>
+    <script src="scripts/loading_service.js"></script>
+    <script src="scripts/mentor/mentor_controller.js"></script>
+    <script src="scripts/mentor/mentor_routes.js"></script>
+    <script src="scripts/milestone/milestone_controller.js"></script>
+    <script src="scripts/milestone/milestone_routes.js"></script>
+    <script src="scripts/milestone/milestone_service.js"></script>
+    <script src="scripts/nav/nav_controller.js"></script>
+    <script src="scripts/organization/add_user_modal_controller.js"></script>
+    <script src="scripts/organization/organization_controller.js"></script>
+    <script src="scripts/organization/organization_routes.js"></script>
+    <script src="scripts/organization/organization_service.js"></script>
+    <script src="scripts/overall_progress_circle_directive.js"></script>
+    <script src="scripts/profile/profile_controller.js"></script>
+    <script src="scripts/profile/profile_routes.js"></script>
+    <script src="scripts/progress/academics_progress_controller.js"></script>
+    <script src="scripts/progress/college_prep_progress_controller.js"></script>
+    <script src="scripts/progress/extracurricular_progress_controller.js"></script>
+    <script src="scripts/progress/progress_controller.js"></script>
+    <script src="scripts/progress/progress_routes.js"></script>
+    <script src="scripts/progress/progress_service.js"></script>
+    <script src="scripts/progress/service_progress_controller.js"></script>
+    <script src="scripts/progress/testing_progress_controller.js"></script>
+    <script src="scripts/progress/user_class_service.js"></script>
+    <script src="scripts/progress/user_extracurricular_activity_service.js"></script>
+    <script src="scripts/progress/user_service_organization_service.js"></script>
+    <script src="scripts/roadmap/add_milestone_modal_controller.js"></script>
+    <script src="scripts/roadmap/edit_milestone_modal_controller.js"></script>
+    <script src="scripts/roadmap/roadmap_controller.js"></script>
+    <script src="scripts/roadmap/roadmap_service.js"></script>
+    <script src="scripts/session_service.js"></script>
+    <script src="scripts/setup/setup_controller.js"></script>
+    <script src="scripts/setup/setup_routes.js"></script>
+    <script src="scripts/static.js"></script>
+    <script src="scripts/students/students_controller.js"></script>
+    <script src="scripts/students/students_routes.js"></script>
+    <script src="scripts/templates.js"></script>
+    <script src="scripts/test/org_test_controller.js"></script>
+    <script src="scripts/test/test_service.js"></script>
+    <!-- endinjector -->
+    <!-- injector:css -->
+    <link rel="stylesheet" href="styles/application.css">
+    <!-- endinjector -->
+
+  </head>
+  <body ng-controller="AppController">
+    <ion-nav-view></ion-nav-view>
+    <!--
+      <div id="wrapper" ng-class="{'no-nav': hide_nav}">
+
+        <div class="alerts-section">
+          <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+        </div>
+
+        <div id="page-content-wrapper" data-ng-view ng-if="!reload_required"></div>
+
+        <div ng-if="reload_required" style="padding: 30px; text-align: center;">
+          <h4>Oops! We recenty updated Imua and we noticed you are using an old version.</h4>
+          <h5>Please refresh your browser window to get the updates!</h5>
+        </div>
+      </div>
+    -->
+  </body>
+</html>
